@@ -1,15 +1,16 @@
 "use strict";
 let d = document;
 let btn_add_activity = d.getElementById("btn_add_activity");
+let btn_cancel_new_activity = d.getElementById("cancel_new_activity");
 let activities = d.getElementById("activities");
+let create_new_activity = d.getElementById("create_new_activity");
 
 //********display*************
 list_activities();
 
 //********Functions************
 function add_activity(){
-    console.log("click");
-    let create_new_activity = d.getElementById("create_new_activity");
+
     create_new_activity.style.display = "block";
     let new_title = d.getElementById("title");
     let new_desc = d.getElementById("desc");
@@ -44,3 +45,4 @@ function list_activities() {
 }
 //********Listeners************
 btn_add_activity.addEventListener('click', add_activity);
+btn_cancel_new_activity.addEventListener('click', function () { create_new_activity.style.display = "none";});

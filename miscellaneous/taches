@@ -1,0 +1,16 @@
+Taches a completer:
+
+**********************Basic************************
+-left div: timer
+-middle div : edit activity and show stats
+-right div : list activities with add functionality
+
+-persistence avec local storage
+-one stat graph/display etc
+
+********************Plus****************************
+-new view that opens fullscreen with start of timer
+-"winding" timer to set time
+-moar stats
+-menus that open/close dynamically
+
