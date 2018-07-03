@@ -16,6 +16,7 @@ function add_activity(){
     let new_desc = d.getElementById("desc");
     let new_goal = d.getElementById("goal");
     let confirm_new_activity = d.getElementById("confirm_new_activity");
+
     function confirm() {
         let newActivity = new Activity();
         newActivity.title = new_title.value;
@@ -37,9 +38,9 @@ function list_activities() {
     while(activities.hasChildNodes()){
         activities.removeChild(activities.lastChild);
     }
-    for (let a of MyActivities) {
+    for (let a of MyActivities.keys()) {
         let item = d.createElement("div");
-        item.innerText = a.title;
+        item.innerText = a;
         activities.appendChild(item);
     }
 }
