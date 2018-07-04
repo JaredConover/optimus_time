@@ -1,0 +1,70 @@
+/************************* BASICS **************************/
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-family:"Arial", cursive;
+}
+
+body{
+    width:960px;
+    margin:0 auto;
+    background-color: #38205e;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, nav, section { display: block; }
+
+ul{
+    list-style:none;
+}
+
+img{
+    width:100%;
+    height: 100%;
+}
+
+/************************* SECTIONS **************************/
+
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.item{
+    width: 100%;
+}
+
+/************************* TITRES **************************/
+
+h3 {
+    text-align: center;
+    color: ghostwhite;
+}
+
+
+/************************** TIMER ***************************/
+
+.item_timer{
+    padding: 0.5em;
+    width: 30%;
+}
+
+
+
+/********************* LIST ACTIVITIES **********************/
+
+.item_list{
+    padding: 0.5em;
+    width: 30%;
+    height: 765px;
+    overflow-y: scroll;
+}
+
+
+
+
