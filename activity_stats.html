@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Optimus Time |  Best App Ever</title>
+
+    <script type="text/javascript" src="script/model.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/styles.css"/>
+
+
     <link type="text/css" rel="stylesheet" href="css/main.css"/>
     <link type="text/css" rel="stylesheet" href="css/activity_stats.css"/>
 </head>
@@ -20,6 +25,37 @@
 <!-- STATS -->
 <section id="stats_section" class="item item_stats">
     <h3>statistics</h3>
+
+    <form method="post">
+        <div id="div_title">
+            <label for="stats_title" class="title">Title</label>
+            <hr/>
+            <div id="div_title_content">
+                <p></p>
+                <img src="images/icon_edit.png" id="edit_title" />
+            </div>
+            <div id="div_title_content_to_edit">
+                <textarea id="stats_title" name="stats_title"></textarea>
+                <img src="images/icon_save.png" id="save_title" />
+            </div>
+        </div>
+    </form>
+
+    <form method="post">
+        <div id="div_desc">
+            <label for="stats_desc" class="desc">Description</label>
+            <hr/>
+            <div id="div_desc_content">
+                <p></p>
+                <img src="images/icon_edit.png" id="edit_desc" />
+            </div>
+            <div id="div_desc_content_to_edit">
+                <textarea id="stats_desc" name="stats_desc"></textarea>
+                <img src="images/icon_save.png" id="save_desc" />
+            </div>
+        </div>
+    </form>
+
     <form method="post">
         <div id="div_goal">
             <label for="stats_goal" class="title">Goal</label>
@@ -66,10 +102,24 @@
 <section id="menu_act_section" class="item item_list">
     <h3>activities</h3>
 
+
+    <button id="btn_add_activity">add</button>
+
+    <div id="create_new_activity">
+        <input type="text" id="title" placeholder="Title">
+        <textarea id="desc" placeholder="Description"></textarea>
+        <input type="text" id="goal" placeholder="Current Goal">
+        <button id="confirm_new_activity">Create</button>
+        <button id="cancel_new_activity">Cancel</button>
+    </div>
+
+    <ul id="activities">Activities</ul>
+
 </section>
 <!-- END LISTE ACTIVITIES -->
 
 
 <script type="text/javascript" src="script/activity_stats.js"></script>
+<script type="text/javascript" src="script/main.js"></script>
 </body>
 </html>

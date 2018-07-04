@@ -49,3 +49,38 @@ input{
     max-width: 30px;
 }
 
+/*********************** title ***********************/
+
+#div_title_content, #div_title_content_to_edit{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#div_title_content p, #div_title_content_to_edit textarea {
+    width: 85%;
+}
+
+#div_title_content img, #div_title_content_to_edit img {
+    width: 10%;
+    max-width: 30px;
+}
+
+/*********************** desc ***********************/
+
+#div_desc_content, #div_desc_content_to_edit{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#div_desc_content p, #div_desc_content_to_edit textarea {
+    width: 85%;
+}
+
+#div_desc_content img, #div_desc_content_to_edit img {
+    width: 10%;
+    max-width: 30px;
+}
