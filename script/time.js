@@ -1,51 +1,97 @@
 "use strict";
 
-let btn = document.getElementById("startTime");
+let btnStart = document.getElementById("startTime");
+let btnPause = document.getElementById("pauseTime");
+let btnStop = document.getElementById("stopTime");
 
-btn.addEventListener("click", function () {
+let time;
+let timeTime;
+let state;
+let timer;
+let angle = 0;
 
+btnStart.addEventListener("click", function () {
 
+    if(state === "start" || isNaN(document.getElementById("timeIn").value)){
 
-    let time = document.getElementById("timeIn").value;
-    console.log("time : ", time);
-    time *= 60;
-    let timeTime= time * 1000;
-    console.log("time : ", time);
+        // do nothing
 
+    } else if(state === "pause"){
 
-    let timer = window.setInterval(function() {
+        state = "start";
 
-        rotationImage();
+        timer = window.setInterval(run, 1000);
 
-        time -= 1;
+    }else{
 
-        let minutes = Math.floor((time / 60) % 60);
-        let seconds = time % 60;
+        state = "start";
 
-        if(time > 0) {
-            document.getElementById("myTime").innerHTML = minutes + "m " + seconds + "s ";
-        }else{
-            stop;
-            outOfTime();
-            console.log("stop");
-        }
+        time = document.getElementById("timeIn").value;
+        console.log("time : ", time);
+        time *= 60;
+        timeTime = time * 1000;
+        console.log("time : ", time);
 
+        timer = window.setInterval(run, 1000);
 
-    }, 1000);
+        let stop = window.setTimeout(function(){
 
-    let stop = window.setTimeout(function(){
+            clearInterval(timer);
+        }, timeTime);
 
-        clearInterval(timer);
-    }, timeTime);
+    }
 
 });
 
-let angle = 0;
+
+btnPause.addEventListener("click", function (){
+
+    if(state === "start") {
+
+        state = "pause";
+        clearInterval(timer);
+    }
+
+});
+
+btnStop.addEventListener("click", function (){
+
+    if(state === "start" || state === "pause") {
+
+        state = "stop";
+        angle = 0;
+        document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
+        clearInterval(timer);
+        document.getElementById("myTime").innerHTML = "Session terminee";
+    }
+
+
+});
+
+function run() {
+
+    rotationImage();
+
+    time -= 1;
+
+    let minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+
+    if(time > 0) {
+        document.getElementById("myTime").innerHTML = minutes + "m " + seconds + "s ";
+    }else{
+        stop;
+        outOfTime();
+        console.log("stop");
+    }
+
+
+}
+
 
 function rotationImage(){
-    console.log("Hello!");
 
-    angle += 45;
+    angle += 6;
     document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
 }
 
