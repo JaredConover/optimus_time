@@ -46,5 +46,6 @@ input{
 
 #div_goal_content img, #div_goal_content_to_edit img {
     width: 10%;
+    max-width: 30px;
 }
 
