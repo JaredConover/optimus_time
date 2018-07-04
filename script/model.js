@@ -37,26 +37,29 @@ class TimedSession  {
 
 
 
+function init_MyActivities() {
+    let MyActivities = new Map();
 
-let MyActivities = new Map();
+    let new_activity = new Activity();
+    new_activity.title = "soccer";
+    new_activity.description = "i kick da balls";
 
-let new_activity = new Activity();
-new_activity.title = "soccer";
-new_activity.description = "i kick da balls";
+    let soccer_1 = new TimedSession();
+    soccer_1.date = "2/2/2018";
+    soccer_1.length = 22;
+    new_activity.timed_sessions.push(soccer_1);
 
-let soccer_1 = new TimedSession();
-soccer_1.date = "2/2/2018";
-soccer_1.length = 22;
-new_activity.timed_sessions.push(soccer_1);
+    let soccer_2 = new TimedSession();
+    soccer_2.date = "3/2/2018";
+    soccer_2.length = 28;
 
-let soccer_2 = new TimedSession();
-soccer_2.date = "3/2/2018";
-soccer_2.length = 28;
+    MyActivities.set(new_activity.title, new_activity);
 
-MyActivities.set(new_activity.title, new_activity);
+    let activity = MyActivities.get("soccer");
+    activity.timed_sessions.push(soccer_2);
 
-let activity = MyActivities.get("soccer");
-activity.timed_sessions.push(soccer_2);
+    return MyActivities;
+}
 
 
 
