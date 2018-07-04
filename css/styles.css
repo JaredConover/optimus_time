@@ -1,7 +1,31 @@
 #create_new_activity {
     display: none;
 }
+#create_new_activity textarea {
+    width: 100%;
+    font-size: small;
 
+}
+.list_element{
+    width: 100%;
+}
+.list_element {
+    color: #fff;
+    width: 100%;
+}
+.list_element:hover{
+    background-color: #fff;
+    color: #38205e;
+}
+.list_element a:hover{
+    color: #38205e;
+
+}
 body {
     background-color: aquamarine;
+}
+
+ul {
+    list-style: none;
+    align-content: center;
 }

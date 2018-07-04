@@ -1,6 +1,8 @@
 "use strict";
 
 //###################### Functions ################################
+
+//************ Start Activity List ******************************
 function add_activity() {
 
     create_new_activity.style.display = "block";
@@ -33,29 +35,56 @@ function list_activities() {
         activities.removeChild(activities.lastChild);
     }
     for (let a of MyActivities.keys()) {
-        let item = d.createElement("div");
-        item.innerHTML = "<span>" + a + "</span>";
-        item.style.display = "block";
-        activities.appendChild(item);
+        let item = d.createElement("li");
+        item.classList.add("list_element");
+
+
+        // item.innerHTML = "<a class='title'>" + a + "</a>";
+        item.innerHTML = a;
+        // item.innerHTML += "<span class='delete'>x</span>";
+
+        // i_delete.style.display = "none";
+
+
+
+
         item.addEventListener('click', select_activity);
-        item.addEventListener('mouseover', highlight_btn);
-        item.addEventListener('mouseout', unhighlight_btn);
+        // item.addEventListener('mouseover', highlight_btn);
+        // item.addEventListener('mouseleave', unhighlight_btn);
+
+        activities.appendChild(item);
     }
 }
 
 function highlight_btn(evt) {
+    let div = evt.target;
     evt.target.style.backgroundColor = "#7800FF";
-    evt.target.innerHTML += "<span class='delete'>X</span>";
+    // div.children[1].style.display = "flex";
+
+    // evt.target.getElementsByClassName("delete")[0].display = "block";
+    // console.log(evt.target.getElementsByClassName("delete"));
+    console.log(div.children[0]);
 }
 
 function unhighlight_btn(evt) {
     evt.target.style.backgroundColor = "#efffed";
+    // evt.target.children[0].style.backgroundColor = "#efffed";
+    // evt.target.children[1].style.backgroundColor = "#efffed";
+
+    // evt.target.firstElementChild..style.backgroundColor = "#efffed";
+    evt.target.firstElementChild.style.backgroundColor = "#efffed";
 
 }
 
 function select_activity(evt) {
-    alert(evt.target.innerText);
+    let obj = MyActivities.get(evt.target.innerText);
+
+    alert(obj.description);
 }
+
+//************ End Activity List ******************************
+
+//************ Start Persistence  ******************************
 
 function load_activities() {
 
@@ -86,6 +115,8 @@ function sauvegarde() {
     console.log(localStorage.getItem("MyActivities"));
 
 }
+//************ End Persistence  ******************************
+
 
 //################################## Execution ###################################################
 
