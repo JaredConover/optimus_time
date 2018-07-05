@@ -15,7 +15,7 @@
     width: 100%;
 }
 
-.list_element:hover{
+.list_element :hover{
     background-color: #fff;
     color: #38205e;
     cursor: pointer;
@@ -30,7 +30,13 @@
     color: #38205e;
 }
 
+.list_element a:active{
+    background-color: #fff;
+    color: #38205e;
+}
+
 ul {
     list-style: none;
     align-content: center;
+    width: 100%;
 }

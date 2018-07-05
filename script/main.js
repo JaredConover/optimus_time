@@ -61,9 +61,11 @@ function select_activity(evt) {
     selected_activity = MyActivities.get(evt.target.textContent);
     display_selected_activity_info();
     display_selected_history_info();
+    display_timer_activity();
     showLastSession();
     // alert(obj.description);
 }
+
 
 //************ End Activity List ******************************
 

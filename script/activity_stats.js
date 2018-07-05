@@ -56,7 +56,6 @@ save_goal.addEventListener("click", function (evt) {
 
 
 
-
 //******************************* Some functions **********************************
 function display_selected_activity_info() {
     // console.log(evt.target.textContent);

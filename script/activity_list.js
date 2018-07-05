@@ -53,3 +53,4 @@ function unhighlight_btn(evt) {
 function select_activity(evt) {
     alert(evt.target.innerText);
 }
+

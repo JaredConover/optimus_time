@@ -16,6 +16,13 @@ let hoursDone = 0;
 
 //let selected_activity = new Activity(); // enelever le let
 
+
+function display_timer_activity(){
+    let timer_titre_activity = document.getElementById("timer_titre_activity");
+    timer_titre_activity.textContent = selected_activity.title;
+}
+
+
 btnStart.addEventListener("click", function () {
 
     if(state === "start" || isNaN(document.getElementById("timeIn").value)){
