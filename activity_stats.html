@@ -6,8 +6,6 @@
 
     <script type="text/javascript" src="script/model.js"></script>
     <link type="text/css" rel="stylesheet" href="css/styles.css"/>
-
-
     <link type="text/css" rel="stylesheet" href="css/main.css"/>
     <link type="text/css" rel="stylesheet" href="css/activity_stats.css"/>
 </head>
@@ -26,21 +24,19 @@
 <section id="stats_section" class="item item_stats">
     <h3>statistics</h3>
 
+    <!-- TITLE -->
     <form method="post">
         <div id="div_title">
-            <label for="stats_title" class="title">Title</label>
+            <h5 class="title">Title</h5>
             <hr/>
             <div id="div_title_content">
                 <p></p>
-                <img src="images/icon_edit.png" id="edit_title" />
-            </div>
-            <div id="div_title_content_to_edit">
-                <textarea id="stats_title" name="stats_title"></textarea>
-                <img src="images/icon_save.png" id="save_title" />
             </div>
         </div>
     </form>
+    <!-- END TITLE -->
 
+    <!-- DESC -->
     <form method="post">
         <div id="div_desc">
             <label for="stats_desc" class="desc">Description</label>
@@ -55,7 +51,9 @@
             </div>
         </div>
     </form>
+    <!-- END DESC -->
 
+    <!-- GOAL -->
     <form method="post">
         <div id="div_goal">
             <label for="stats_goal" class="title">Goal</label>
@@ -70,34 +68,60 @@
             </div>
         </div>
     </form>
+    <!-- END GOAL -->
 
+    <!-- BTN DELETE ACTIVITY -->
     <button id="delete_activity">Delete Activity</button>
+    <!-- END BTN DELETE ACTIVITY -->
 
+    <!-- HISTORY -->
+    <div>
+        <h5>History</h5>
+        <hr/>
+        <span></span>
+    </div>
+    <!-- END HISTORY -->
+
+    <!-- STREAK -->
     <div>
         <h5>Streak</h5>
         <hr/>
         <span></span>
     </div>
+    <!-- END STREAK -->
+
+    <!-- TIME AVERAGE -->
     <div>
         <h5>Time Average</h5>
         <hr/>
         <span></span>
     </div>
+    <!-- AVERAGE -->
+
+    <!-- 15 DAYS -->
     <div>
         <h5>15 days</h5>
         <hr/>
         <!-- SVG GRAPH -->
     </div>
+    <!-- END 15 DAYS -->
+
+    <!-- 30 DAYS -->
     <div>
         <h5>30 days</h5>
         <hr/>
         <!-- SVG GRAPH -->
     </div>
+    <!-- END 30 DAYS -->
+
+    <!-- CALENDAR -->
     <div>
         <h5>Calendar</h5>
         <hr/>
         <!-- CALENDAR -->
     </div>
+    <!-- END CALENDAR -->
+
 </section>
 <!-- END STATS -->
 

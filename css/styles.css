@@ -9,20 +9,25 @@
 .list_element{
     width: 100%;
 }
+
 .list_element {
     color: #fff;
     width: 100%;
 }
+
 .list_element:hover{
     background-color: #fff;
     color: #38205e;
+    cursor: pointer;
 }
+
 .list_element a:hover{
     color: #38205e;
-
 }
-body {
-    background-color: aquamarine;
+
+.list_element:active{
+    background-color: #fff;
+    color: #38205e;
 }
 
 ul {

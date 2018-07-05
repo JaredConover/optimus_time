@@ -41,7 +41,6 @@ function list_activities() {
         item.addEventListener('click', select_activity);
         // item.addEventListener('mouseover', highlight_btn);
         // item.addEventListener('mouseleave', unhighlight_btn);
-
         activities.appendChild(item);
     }
 }
@@ -87,6 +86,7 @@ function load_activities() {
             sauvegarde();
         }
     }
+
 }
 
 function sauvegarde() {
