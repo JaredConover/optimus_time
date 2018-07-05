@@ -16,7 +16,6 @@ let textarea_goaltext = textarea_goal.textContent; // get textarea text
 let div_goal_content_to_edit = document.getElementById("div_goal_content_to_edit");
 
 
-
 /* DISPLAY DIV TO EDIT GOAL */
 div_goal_content_to_edit.style.display = "none";
 
@@ -31,7 +30,7 @@ if(p_goaltext === "" || p_goaltext === " "){
 /* EDIT BUTTON */
 let edit_goal = document.getElementById("edit_goal");
 
-edit_goal.addEventListener("click", function(evt){
+edit_goal.addEventListener("click", function (evt) {
 
     /* get div and add style display none */
     div_goal_content.style.display = "none";
@@ -44,7 +43,7 @@ edit_goal.addEventListener("click", function(evt){
 /* SAVE BUTTON */
 let save_goal = document.getElementById("save_goal");
 
-save_goal.addEventListener("click", function(evt){
+save_goal.addEventListener("click", function (evt) {
 
     /* AFFICHER GOAL
     if(textarea_goaltext === "" || textarea_goaltext === " "){
@@ -69,16 +68,15 @@ save_goal.addEventListener("click", function(evt){
 
 let div_title_content = document.getElementById("div_title_content");
 
-/*
+
 let p_title = div_title_content.firstElementChild; // get p
 let p_titletext = p_title.textContent; // get p text
 
-let textarea_title = div_title_content_to_edit.firstElementChild; // get textarea
-let textarea_titletext = textarea_title.textContent; // get textarea text
-*/
+// let textarea_title = div_title_content_to_edit.firstElementChild; // get textarea
+// let textarea_titletext = textarea_title.textContent; // get textarea text
+
 
 let div_title_content_to_edit = document.getElementById("div_title_content_to_edit");
-
 
 
 /* DISPLAY DIV TO EDIT title */
@@ -95,7 +93,7 @@ if(p_titletext === "" || p_titletext === " "){
 /* EDIT BUTTON */
 let edit_title = document.getElementById("edit_title");
 
-edit_title.addEventListener("click", function(){
+edit_title.addEventListener("click", function () {
 
     /* get div and add style display none */
     div_title_content.style.display = "none";
@@ -108,7 +106,7 @@ edit_title.addEventListener("click", function(){
 /* SAVE BUTTON */
 let save_title = document.getElementById("save_title");
 
-save_title.addEventListener("click", function(){
+save_title.addEventListener("click", function () {
 
     /* AFFICHER title
     if(textarea_titletext === "" || textarea_titletext === " "){
@@ -130,7 +128,6 @@ save_title.addEventListener("click", function(){
 });
 
 
-
 /**************** SECTION desc ****************/
 
 let div_desc_content = document.getElementById("div_desc_content");
@@ -144,7 +141,6 @@ let textarea_desctext = textarea_desc.textContent; // get textarea text
 */
 
 let div_desc_content_to_edit = document.getElementById("div_desc_content_to_edit");
-
 
 
 /* DISPLAY DIV TO EDIT desc */
@@ -161,7 +157,7 @@ if(p_desctext === "" || p_desctext === " "){
 /* EDIT BUTTON */
 let edit_desc = document.getElementById("edit_desc");
 
-edit_desc.addEventListener("click", function(evt){
+edit_desc.addEventListener("click", function (evt) {
 
     /* get div and add style display none */
     div_desc_content.style.display = "none";
@@ -174,7 +170,7 @@ edit_desc.addEventListener("click", function(evt){
 /* SAVE BUTTON */
 let save_desc = document.getElementById("save_desc");
 
-save_desc.addEventListener("click", function(evt){
+save_desc.addEventListener("click", function (evt) {
 
     /* AFFICHER desc
     if(textarea_desctext === "" || textarea_desctext === " "){
@@ -194,3 +190,33 @@ save_desc.addEventListener("click", function(evt){
     window.alert("Your new desc has been saved!");
 
 });
+
+//******************************* Some functions **********************************
+function display_selected_activity_info() {
+    // console.log(evt.target.textContent);
+    // selected_activity = MyActivities.get(evt.target.textContent);
+    div_title_content.firstElementChild.textContent = selected_activity.title;
+    div_desc_content.firstElementChild.textContent = selected_activity.description;
+    div_goal_content.firstElementChild.textContent = selected_activity.current_goal;
+}
+
+
+function delete_selected_activity(evt) {
+    if (selected_activity !== undefined) {
+        MyActivities.delete(selected_activity.title);
+        sauvegarde();
+        list_activities();
+        selected_activity = new Activity();
+        display_selected_activity_info();
+    }
+}
+
+
+//****************************** some Executions **************************8
+let selected_activity;
+console.log(selected_activity);
+
+let btn_delete_activity = document.getElementById("delete_activity");
+btn_delete_activity.addEventListener("click", delete_selected_activity);
+
+

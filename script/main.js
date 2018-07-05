@@ -37,17 +37,7 @@ function list_activities() {
     for (let a of MyActivities.keys()) {
         let item = d.createElement("li");
         item.classList.add("list_element");
-
-
-        // item.innerHTML = "<a class='title'>" + a + "</a>";
         item.innerHTML = a;
-        // item.innerHTML += "<span class='delete'>x</span>";
-
-        // i_delete.style.display = "none";
-
-
-
-
         item.addEventListener('click', select_activity);
         // item.addEventListener('mouseover', highlight_btn);
         // item.addEventListener('mouseleave', unhighlight_btn);
@@ -59,27 +49,19 @@ function list_activities() {
 function highlight_btn(evt) {
     let div = evt.target;
     evt.target.style.backgroundColor = "#7800FF";
-    // div.children[1].style.display = "flex";
-
-    // evt.target.getElementsByClassName("delete")[0].display = "block";
-    // console.log(evt.target.getElementsByClassName("delete"));
     console.log(div.children[0]);
 }
 
 function unhighlight_btn(evt) {
     evt.target.style.backgroundColor = "#efffed";
-    // evt.target.children[0].style.backgroundColor = "#efffed";
-    // evt.target.children[1].style.backgroundColor = "#efffed";
-
-    // evt.target.firstElementChild..style.backgroundColor = "#efffed";
     evt.target.firstElementChild.style.backgroundColor = "#efffed";
-
 }
 
 function select_activity(evt) {
-    let obj = MyActivities.get(evt.target.innerText);
-
-    alert(obj.description);
+    // let obj = MyActivities.get(evt.target.innerText);
+    selected_activity = MyActivities.get(evt.target.textContent);
+    display_selected_activity_info();
+    // alert(obj.description);
 }
 
 //************ End Activity List ******************************
