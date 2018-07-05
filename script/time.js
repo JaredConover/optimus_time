@@ -8,7 +8,13 @@ let time;
 let timeTime;
 let state;
 let timer;
+let dateStart;
 let angle = 0;
+let secondsDone = 0;
+let minutesDone = 0;
+let hoursDone = 0;
+
+let selected_activity = new Activity(); // enelever le let
 
 btnStart.addEventListener("click", function () {
 
@@ -25,6 +31,8 @@ btnStart.addEventListener("click", function () {
     }else{
 
         state = "start";
+
+        dateStart = new Date();
 
         time = document.getElementById("timeIn").value;
         console.log("time : ", time);
@@ -63,6 +71,9 @@ btnStop.addEventListener("click", function (){
         document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
         clearInterval(timer);
         document.getElementById("myTime").innerHTML = "Session terminee";
+
+        saveSession();
+
     }
 
 
@@ -73,6 +84,11 @@ function run() {
     rotationImage();
 
     time -= 1;
+
+    secondsDone += 1
+    if (secondsDone % 60 === 0) {
+        minutesDone += 1;
+    }
 
     let minutes = Math.floor(time / 60);
     let seconds = time % 60;
@@ -98,9 +114,37 @@ function rotationImage(){
 function outOfTime(){
 
     document.getElementById("myTime").innerHTML = "EXPIRED";
+    saveSession();
+
 }
 
+function saveSession(){
+
+    let dateFinish = new Date();
+    hoursDone = Math.floor(minutesDone / 60);
+
+    let session = new TimedSession();
+    session.focus = document.getElementById("focus").value;
+    session.notes = document.getElementById("notes").value;
+    session.length = "Heures : " + hoursDone + ", Minutes : " + (minutesDone % 60) + " , Secondes : " + (secondsDone % 60);
+    session.date = dateStart.getDay() + " / " + dateStart.getMonth() + " / " + dateStart.getFullYear();
+    session.start_time = dateStart.getHours() + " : " + dateStart.getMinutes() + " : " + dateStart.getSeconds();
+    session.finish_time = dateFinish.getHours() + " : " + dateFinish.getMinutes() + " : " + dateFinish.getSeconds();
+    selected_activity.timed_sessions.push(session);
+
+    showLastSession();
+}
+
+function showLastSession(){
+    document.getElementById("lastFocus").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].focus;
+    document.getElementById("lastNotes").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].notes;
+    document.getElementById("lastDate").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].date;
+    document.getElementById("lastStartTime").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].start_time;
+    document.getElementById("lastFinishTime").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].finish_time;
+    document.getElementById("lastLength").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].length;
 
 
+
+}
 
 
