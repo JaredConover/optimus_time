@@ -60,6 +60,8 @@ function select_activity(evt) {
     // let obj = MyActivities.get(evt.target.innerText);
     selected_activity = MyActivities.get(evt.target.textContent);
     display_selected_activity_info();
+    display_selected_history_info();
+    showLastSession();
     // alert(obj.description);
 }
 

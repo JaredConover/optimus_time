@@ -79,6 +79,7 @@ function delete_selected_activity(evt) {
         list_activities();
         selected_activity = new Activity();
         display_selected_activity_info();
+        display_selected_history_info();
     }
 }
 
@@ -92,6 +93,61 @@ btn_delete_activity.addEventListener("click", delete_selected_activity);
 
 //****************************** SECTION HISTORY **************************//
 
+let div_table_sessions = document.getElementById("div_table_sessions");
+
+function display_selected_history_info(){
+
+        while (div_table_sessions.hasChildNodes()) {
+            div_table_sessions.removeChild(div_table_sessions.lastChild);
+        }
+
+        let table = document.createElement("table");
+        div_table_sessions.appendChild(table);
+
+        let tr = document.createElement("tr");
+        table.appendChild(tr);
+        // td focus
+        let td_focus = document.createElement("td");
+        td_focus.textContent = "Focus";
+        tr.appendChild(td_focus);
+        // td notes
+        let td_notes = document.createElement("td");
+        td_notes.textContent = "Notes";
+        tr.appendChild(td_notes);
+        // td length
+        let td_length = document.createElement("td");
+        td_length.textContent = "Length";
+        tr.appendChild(td_length);
+        // td date
+        let td_date = document.createElement("td");
+        td_date.textContent = "Date";
+        tr.appendChild(td_date);
+
+        if (selected_activity.timed_sessions.length > 0){
+        for(let s of selected_activity.timed_sessions){
+
+            let tr = document.createElement("tr");
+            table.appendChild(tr);
+            // td focus
+            let td_focus = document.createElement("td");
+            td_focus.textContent = s.focus;
+            tr.appendChild(td_focus);
+            // td notes
+            let td_notes = document.createElement("td");
+            td_notes.textContent = s.notes;
+            tr.appendChild(td_notes);
+            // td length
+            let td_length = document.createElement("td");
+            td_length.textContent = s.length;
+            tr.appendChild(td_length);
+            // td date
+            let td_date = document.createElement("td");
+            td_date.textContent = s.date;
+            tr.appendChild(td_date);
+
+        }
+        }
+}
 
 //****************************** SECTION TIME AVERAGE ********************//
 

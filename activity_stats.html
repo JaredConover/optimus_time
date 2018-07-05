@@ -13,8 +13,30 @@
 
 <!-- TIMER -->
 <section id="timer_section" class="item_timer">
-    <h3>activity</h3>
+    <h3></h3>
     <div>
+
+        Entrer la duree de votre session en minutes<input type="text" id="timeIn"/>
+        <label id="myTime">Duree de votre session</label>
+        <button id="startTime">START</button>
+        <button id="pauseTime">PAUSE</button>
+        <button id="stopTime">STOP</button>
+
+        <p id="timeOut"></p>
+
+        Focus<input type="text" id="focus"/>
+        Notes<input type="text" id="notes"/>
+
+        <img src="images/hourglass.jpg" id="imageTime">
+
+        <label>Derniere session : </label><br/>
+        <label id="lastFocus">mon focus</label><br/>
+        <label id="lastNotes">mes notes</label><br/>
+        <label id="lastDate">ma date</label><br/>
+        <label id="lastStartTime">date debut</label><br/>
+        <label id="lastFinishTime">date fin</label><br/>
+        <label id="lastLength">Duree de votre session</label>
+
 
     </div>
 </section>
@@ -75,10 +97,12 @@
     <!-- END BTN DELETE ACTIVITY -->
 
     <!-- HISTORY -->
-    <div>
+    <div id="div_history">
         <h5>History</h5>
         <hr/>
-        <span></span>
+        <div id="div_table_sessions" class="scroll">
+
+        </div>
     </div>
     <!-- END HISTORY -->
 
@@ -128,8 +152,8 @@
 </section>
 <!-- END LISTE ACTIVITIES -->
 
-
 <script type="text/javascript" src="script/activity_stats.js"></script>
 <script type="text/javascript" src="script/main.js"></script>
+<script type="text/javascript" src="script/time.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@ let secondsDone = 0;
 let minutesDone = 0;
 let hoursDone = 0;
 
-let selected_activity = new Activity(); // enelever le let
+//let selected_activity = new Activity(); // enelever le let
 
 btnStart.addEventListener("click", function () {
 
@@ -133,9 +133,14 @@ function saveSession(){
     selected_activity.timed_sessions.push(session);
 
     showLastSession();
+    sauvegarde();
 }
 
+
 function showLastSession(){
+
+    if (selected_activity.timed_sessions.length > 0){
+
     document.getElementById("lastFocus").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].focus;
     document.getElementById("lastNotes").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].notes;
     document.getElementById("lastDate").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].date;
@@ -143,7 +148,7 @@ function showLastSession(){
     document.getElementById("lastFinishTime").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].finish_time;
     document.getElementById("lastLength").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].length;
 
-
+    }
 
 }
 
