@@ -1,5 +1,7 @@
 "use strict";
 
+$(".error_msg").hide();
+
 let btnStart = document.getElementById("startTime");
 let btnPause = document.getElementById("pauseTime");
 let btnStop = document.getElementById("stopTime");
@@ -14,6 +16,12 @@ let secondsDone = 0;
 let minutesDone = 0;
 let hoursDone = 0;
 
+let formulaire = $("#form_timer");
+console.log(formulaire);
+
+let champs =  formulaire.find("input");
+console.log(champs);
+
 //let selected_activity = new Activity(); // enelever le let
 
 
@@ -23,7 +31,29 @@ function display_timer_activity(){
 }
 
 
-btnStart.addEventListener("click", function () {
+function startTimer(){
+
+    state = "start";
+
+    dateStart = new Date();
+
+    time = document.getElementById("timeIn").value;
+    console.log("time : ", time);
+    time *= 60;
+    timeTime = time * 1000;
+    console.log("time : ", time);
+
+    timer = window.setInterval(run, 1000);
+
+    let stop = window.setTimeout(function(){
+
+        clearInterval(timer);
+    }, timeTime);
+
+}
+
+function valider_form_timer(event) {
+
 
     if(state === "start" || isNaN(document.getElementById("timeIn").value)){
 
@@ -37,29 +67,57 @@ btnStart.addEventListener("click", function () {
 
     }else{
 
-        state = "start";
+        let formulaire_valide = true;
 
-        dateStart = new Date();
+        let champ_timeIn = champs.filter("[name=timeIn]");
+        let champ_focus = champs.filter("[name=focus]");
+        let btn_start = champs.filter("[name=startTime]");
 
-        time = document.getElementById("timeIn").value;
-        console.log("time : ", time);
-        time *= 60;
-        timeTime = time * 1000;
-        console.log("time : ", time);
+        console.log(parseInt(champ_timeIn.val()));
 
-        timer = window.setInterval(run, 1000);
 
-        let stop = window.setTimeout(function(){
+        if(selected_activity !== undefined){
 
-            clearInterval(timer);
-        }, timeTime);
+        }else{
+            btn_start.addClass("error");
+            btn_start.next("p").show();
+            formulaire_valide = false;
+        }
+
+        if(!isNaN(parseInt(champ_timeIn.val()))){
+
+        }else{
+            champ_timeIn.addClass("error");
+            champ_timeIn.next("p").show();
+            formulaire_valide = false;
+        }
+
+        if(champ_focus.val().length > 0){
+
+        }else{
+            champ_focus.addClass("error");
+            champ_focus.next("p").show();
+            formulaire_valide = false;
+        }
+
+        console.log("Tentative de soumission du formulaire :", event.target);
+
+        console.log("formulaire_valide : ", formulaire_valide);
+
+        if (formulaire_valide){
+
+            startTimer();
+
+        }
+
 
     }
+    event.preventDefault();
+}
 
-});
+formulaire.on("submit", valider_form_timer);
 
-
-btnPause.addEventListener("click", function (){
+btnPause.addEventListener("click", function (event){
 
     if(state === "start") {
 
@@ -67,9 +125,10 @@ btnPause.addEventListener("click", function (){
         clearInterval(timer);
     }
 
+    event.preventDefault();
 });
 
-btnStop.addEventListener("click", function (){
+btnStop.addEventListener("click", function (event){
 
     if(state === "start" || state === "pause") {
 
@@ -83,6 +142,7 @@ btnStop.addEventListener("click", function (){
 
     }
 
+    event.preventDefault();
 
 });
 
@@ -111,11 +171,31 @@ function run() {
 
 }
 
+let i = 1;
+let j = 10;
 
 function rotationImage(){
 
-    angle += 6;
-    document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
+    if(i <= 10){
+        $("#imageTime").attr("src","images/hourglass_"+i+".png");
+        i++;
+    }else if(i >= 11 && i <=30){
+        angle += 9;
+        document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
+        i++;
+    }else if(i >= 31 && i <=40){
+        $("#imageTime").attr("src","images/hourglass_"+j+".png");
+        j--;
+        i++;
+    }else if(i >= 41 && i <=60){
+        angle -= 9;
+        document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
+        i++;
+    }else{
+        i = 1;
+        j = 10;
+    }
+
 }
 
 function outOfTime(){
@@ -148,15 +228,14 @@ function showLastSession(){
 
     if (selected_activity.timed_sessions.length > 0){
 
-    document.getElementById("lastFocus").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].focus;
-    document.getElementById("lastNotes").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].notes;
-    document.getElementById("lastDate").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].date;
-    document.getElementById("lastStartTime").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].start_time;
-    document.getElementById("lastFinishTime").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].finish_time;
-    document.getElementById("lastLength").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].length;
+        document.getElementById("lastFocus").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].focus;
+        document.getElementById("lastNotes").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].notes;
+        document.getElementById("lastDate").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].date;
+        document.getElementById("lastStartTime").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].start_time;
+        document.getElementById("lastFinishTime").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].finish_time;
+        document.getElementById("lastLength").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].length;
 
     }
 
 }
-
 
