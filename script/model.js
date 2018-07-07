@@ -19,6 +19,7 @@ class TimedSession  {
         this.focus = "";
         this.notes = "";
         this.length = 0;
+        this.lengthgraph = 0;
         this.start_time = "";
         this.finish_time = "";
         this.date = "";
