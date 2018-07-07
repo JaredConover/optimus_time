@@ -16,12 +16,6 @@ let secondsDone = 0;
 let minutesDone = 0;
 let hoursDone = 0;
 
-let formulaire = $("#form_timer");
-console.log(formulaire);
-
-let champs =  formulaire.find("input");
-console.log(champs);
-
 //let selected_activity = new Activity(); // enelever le let
 
 
@@ -52,10 +46,9 @@ function startTimer(){
 
 }
 
-function valider_form_timer(event) {
+btnStart.addEventListener("click", function(event) {
 
-
-    if(state === "start" || isNaN(document.getElementById("timeIn").value)){
+    if(state === "start"){
 
         // do nothing
 
@@ -69,15 +62,17 @@ function valider_form_timer(event) {
 
         let formulaire_valide = true;
 
-        let champ_timeIn = champs.filter("[name=timeIn]");
-        let champ_focus = champs.filter("[name=focus]");
-        let btn_start = champs.filter("[name=startTime]");
+        let champ_timeIn = $("[name=timeIn]");
+        let champ_focus = $("[name=focus]");
+        let btn_start = $("[name=startTime]");
 
         console.log(parseInt(champ_timeIn.val()));
 
 
         if(selected_activity !== undefined){
 
+            btn_start.removeClass("error");
+            btn_start.next("p").hide();
         }else{
             btn_start.addClass("error");
             btn_start.next("p").show();
@@ -85,7 +80,8 @@ function valider_form_timer(event) {
         }
 
         if(!isNaN(parseInt(champ_timeIn.val()))){
-
+            champ_timeIn.removeClass("error");
+            champ_timeIn.next("p").hide();
         }else{
             champ_timeIn.addClass("error");
             champ_timeIn.next("p").show();
@@ -93,7 +89,8 @@ function valider_form_timer(event) {
         }
 
         if(champ_focus.val().length > 0){
-
+            champ_focus.removeClass("error");
+            champ_focus.next("p").hide();
         }else{
             champ_focus.addClass("error");
             champ_focus.next("p").show();
@@ -113,9 +110,7 @@ function valider_form_timer(event) {
 
     }
     event.preventDefault();
-}
-
-formulaire.on("submit", valider_form_timer);
+});
 
 btnPause.addEventListener("click", function (event){
 
@@ -134,6 +129,9 @@ btnStop.addEventListener("click", function (event){
 
         state = "stop";
         angle = 0;
+        i = 1;
+        j = 10;
+        $("#imageTime").attr("src","images/hourglass_"+i+".png");
         document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
         clearInterval(timer);
         document.getElementById("myTime").innerHTML = "Session terminee";
@@ -200,6 +198,8 @@ function rotationImage(){
 
 function outOfTime(){
 
+    i = 1;
+    j = 10;
     document.getElementById("myTime").innerHTML = "EXPIRED";
     saveSession();
 
