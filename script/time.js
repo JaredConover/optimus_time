@@ -224,6 +224,7 @@ function saveSession(){
 }
 
 
+
 function showLastSession(){
 
     if (selected_activity.timed_sessions.length > 0){
