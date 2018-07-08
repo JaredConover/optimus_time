@@ -39,10 +39,7 @@ function startTimer(){
 
     timer = window.setInterval(run, 1000);
 
-    let stop = window.setTimeout(function(){
-
-        clearInterval(timer);
-    }, timeTime);
+    let stop = window.setTimeout(stopTimer, timeTime);
 
 }
 
@@ -127,17 +124,7 @@ btnStop.addEventListener("click", function (event){
 
     if(state === "start" || state === "pause") {
 
-        state = "stop";
-        angle = 0;
-        i = 1;
-        j = 10;
-        $("#imageTime").attr("src","images/hourglass_"+i+".png");
-        document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
-
-        clearInterval(timer);
-        document.getElementById("myTime").innerHTML = "Session terminee";
-
-        saveSession();
+        stopTimer();
 
     }
 
@@ -161,10 +148,6 @@ function run() {
 
     if(time > 0) {
         document.getElementById("myTime").innerHTML = minutes + "m " + seconds + "s ";
-    }else{
-        stop;
-        outOfTime();
-        console.log("stop");
     }
 
 
@@ -175,21 +158,23 @@ let j = 10;
 
 function rotationImage(){
 
+    i++;
+
     if(i <= 10){
         $("#imageTime").attr("src","images/hourglass_"+i+".png");
-        i++;
+
     }else if(i >= 11 && i <=30){
         angle += 9;
         document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
-        i++;
+
     }else if(i >= 31 && i <=40){
         $("#imageTime").attr("src","images/hourglass_"+j+".png");
         j--;
-        i++;
+
     }else if(i >= 41 && i <=60){
         angle -= 9;
         document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
-        i++;
+
     }else{
         i = 1;
         j = 10;
@@ -197,12 +182,26 @@ function rotationImage(){
 
 }
 
-function outOfTime(){
+function stopTimer(){
 
+    clearInterval(timer);
+
+    saveSession();
+
+    $("#imageTime").attr("src","images/hourglass_"+i+".png");
+    document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
+
+    document.getElementById("myTime").innerHTML = "Session terminee";
+
+    display_selected_history_info();
+
+    state = "stop";
+    angle = 0;
+    secondsDone = 0;
+    minutesDone = 0;
+    hoursDone = 0;
     i = 1;
     j = 10;
-    document.getElementById("myTime").innerHTML = "EXPIRED";
-    saveSession();
 
 }
 
@@ -214,7 +213,7 @@ function saveSession(){
     let session = new TimedSession();
     session.focus = document.getElementById("focus").value;
     session.notes = document.getElementById("notes").value;
-    session.length = "Heures : " + hoursDone + " Minutes : " + (minutesDone % 60) + " Secondes : " + (secondsDone % 60);
+    session.length = "Hours : " + hoursDone + " Minutes : " + (minutesDone % 60) + " Seconds : " + (secondsDone % 60);
     session.lengthgraph = (hoursDone * 60) + minutesDone;
     session.date = dateStart.getDate() + " / " + (dateStart.getMonth()+1) + " / " + dateStart.getFullYear();
     session.start_time = dateStart.getHours() + " : " + dateStart.getMinutes() + " : " + dateStart.getSeconds();
@@ -223,21 +222,5 @@ function saveSession(){
 
     showLastSession();
     sauvegarde();
-}
-
-
-function showLastSession(){
-
-    if (selected_activity.timed_sessions.length > 0){
-
-        document.getElementById("lastFocus").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].focus;
-        document.getElementById("lastNotes").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].notes;
-        document.getElementById("lastDate").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].date;
-        document.getElementById("lastStartTime").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].start_time;
-        document.getElementById("lastFinishTime").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].finish_time;
-        document.getElementById("lastLength").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].length;
-
-    }
-
 }
 
