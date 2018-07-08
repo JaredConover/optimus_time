@@ -11,7 +11,10 @@ function display_tab_length(){
     sessions_length = [];
 
     if (selected_activity.timed_sessions.length > 0){
-        for (let s of selected_activity.timed_sessions){
+
+        for(let i = selected_activity.timed_sessions[selected_activity.timed_sessions.length -1]; i > selected_activity.timed_sessions[selected_activity.timed_sessions.length - 5]; i--){
+
+        for (let s of selected_activity.timed_sessions[i]){
 
             lengthforgraph = (s.lengthgraph === undefined ? 0 : s.lengthgraph);
 
@@ -21,6 +24,8 @@ function display_tab_length(){
             console.log("sessions_date.length :", sessions_length.length);
             console.log("lengthforgraph :", lengthforgraph);
             console.log("****************************************")
+
+            }
 
         }
     }
