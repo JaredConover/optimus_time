@@ -88,10 +88,18 @@ input{
 /*********************** History ***********************/
 
 .scroll{
+    height: 200px;
     overflow-y: scroll;
 }
 
-.table_sessions{
-
+.table_historique table{
+    border: none;
 }
 
+.table_historique table tr:nth-child(even){
+    background-color: lightgray;
+}
+
+.table_historique table tr:nth-child(odd){
+    background-color: #ffffff;
+}
