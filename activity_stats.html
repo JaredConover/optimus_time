@@ -22,22 +22,25 @@
     <div>
         <form id="form_timer" name="form_timer">
             <div>
-                Entrer la duree de votre session en minutes : <input type="number" min="5" max="360" id="timeIn" name="timeIn"/>
+                <label class="label_timer">Time (minutes)</label>
+                <input type="number" min="5" max="360" id="timeIn" name="timeIn" class="form_input"/>
                 <p class="error_msg">Veuillez entrer une duree valide.</p>
             </div>
             <div>
-                Focus : <input type="text" id="focus" name="focus"/>
+                <label class="label_timer">Focus</label>
+                <input type="text" id="focus" name="focus" class="form_input"/>
                 <p class="error_msg">Veuillez entrer un focus pour votre session.</p>
             </div>
             <div>
-                Notes : <input type="text" id="notes" name="notes"/>
+                <label class="label_timer">Notes</label>
+                <input type="text" id="notes" name="notes" class="form_input"/>
             </div>
 
-            <label id="myTime">Affichage temps de la session</label>
-            <input type="submit" value="START" id="startTime" name="startTime">
+            <label id="myTime" class="label_timer">Affichage temps de la session</label>
+            <input type="submit" value="START" id="startTime" name="startTime" class="btn_blanc">
             <p class="error_msg">Veuillez selectionner une activite.</p>
-            <input type="submit" value="PAUSE" id="pauseTime" name="pauseTime">
-            <input type="submit" value="STOP" id="stopTime" name="stopTime">
+            <input type="submit" value="PAUSE" id="pauseTime" name="pauseTime" class="btn_blanc">
+            <input type="submit" value="STOP" id="stopTime" name="stopTime" class="btn_blanc">
 
             <p id="timeOut"></p>
 
@@ -75,14 +78,14 @@
     <!-- DESC -->
     <form method="post">
         <div id="div_desc">
-            <label for="stats_desc" class="desc">Description</label>
+            <label for="stats_desc" class="desc title">Description</label>
             <hr/>
             <div id="div_desc_content">
                 <p></p>
                 <img src="images/icon_edit.png" id="edit_desc" />
             </div>
             <div id="div_desc_content_to_edit">
-                <textarea id="stats_desc" name="stats_desc"></textarea>
+                <textarea id="stats_desc" name="stats_desc" class="form_input"></textarea>
                 <img src="images/icon_save.png" id="save_desc" />
             </div>
         </div>
@@ -99,7 +102,7 @@
                 <img src="images/icon_edit.png" id="edit_goal" />
             </div>
             <div id="div_goal_content_to_edit">
-                <textarea id="stats_goal" name="stats_goal"></textarea>
+                <textarea id="stats_goal" name="stats_goal" class="form_input"></textarea>
                 <img src="images/icon_save.png" id="save_goal" />
             </div>
         </div>
@@ -107,7 +110,7 @@
     <!-- END GOAL -->
 
     <!-- BTN DELETE ACTIVITY -->
-    <button id="delete_activity">Delete Activity</button>
+    <button id="delete_activity" class="btn_violet margin_top">Delete Activity</button>
     <!-- END BTN DELETE ACTIVITY -->
 
     <!-- HISTORY -->
@@ -151,14 +154,14 @@
 <section id="menu_act_section" class="item item_list">
     <h3>activities</h3>
 
-    <button id="btn_add_activity">add</button>
+    <button id="btn_add_activity" class="btn_blanc">add</button>
 
     <div id="create_new_activity">
-        <input type="text" id="title" placeholder="Title">
-        <textarea id="desc" placeholder="Description"></textarea>
-        <input type="text" id="goal" placeholder="Current Goal">
-        <button id="confirm_new_activity">Create</button>
-        <button id="cancel_new_activity">Cancel</button>
+        <input type="text" id="title" class="form_input" placeholder="Title">
+        <textarea id="desc" placeholder="Description" class="form_input"></textarea>
+        <input type="text" id="goal" placeholder="Current Goal" class="form_input">
+        <button id="confirm_new_activity" class="btn_blanc">Create</button>
+        <button id="cancel_new_activity" class="btn_blanc">Cancel</button>
     </div>
 
     <ul id="activities">Activities</ul>

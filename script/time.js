@@ -133,6 +133,7 @@ btnStop.addEventListener("click", function (event){
         j = 10;
         $("#imageTime").attr("src","images/hourglass_"+i+".png");
         document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
+
         clearInterval(timer);
         document.getElementById("myTime").innerHTML = "Session terminee";
 

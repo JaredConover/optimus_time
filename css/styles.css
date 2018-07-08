@@ -8,11 +8,8 @@
 }
 .list_element{
     width: 100%;
-}
-
-.list_element {
     color: #fff;
-    width: 100%;
+    font-weight: bold;
 }
 
 .list_element :hover{
