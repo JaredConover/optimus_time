@@ -26,6 +26,9 @@ let save_desc = document.getElementById("save_desc");
 save_desc.addEventListener("click", function (evt) {
     div_desc_content.style.display = "flex";
     div_desc_content_to_edit.style.display = "none";
+    selected_activity.description = document.getElementById("stats_desc").value;
+    sauvegarde();
+    display_selected_activity_info();
     window.alert("Your new desc has been saved!");
 
 });
@@ -51,6 +54,9 @@ let save_goal = document.getElementById("save_goal");
 save_goal.addEventListener("click", function (evt) {
     div_goal_content.style.display = "flex";
     div_goal_content_to_edit.style.display = "none";
+    selected_activity.current_goal = document.getElementById("stats_goal").value;
+    sauvegarde();
+    display_selected_activity_info();
     window.alert("Your new goal has been saved!");
 });
 
