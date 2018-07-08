@@ -174,10 +174,9 @@ function display_time_average(){
             cpt++;
 
         }
+        moyenne = (total / cpt).toFixed(2);
+
     }
-
-
-    moyenne = (total / cpt).toFixed(2);
 
     while (div_time_average.hasChildNodes()) {
         div_time_average.removeChild(div_time_average.lastChild);
