@@ -1,6 +1,9 @@
 "use strict";
 
 
+window.resizeTo(600, 400);
+
+
 /**************** SECTION title ****************/
 
 let div_title_content = document.getElementById("div_title_content");

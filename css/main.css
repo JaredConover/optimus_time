@@ -122,6 +122,11 @@ h3 {
     color: yellow;
 }
 
+.btnstimer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
 /********************* LIST ACTIVITIES **********************/
 
