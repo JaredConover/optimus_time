@@ -12,7 +12,7 @@
     <link type="text/css" rel="stylesheet" href="css/graph.css"/>
 
 </head>
-<body class="container">
+<body class="container" onload="window.resizeTo(640,480)">
 
 <!-- TIMER -->
 <section id="timer_section" class="item_timer">
@@ -22,7 +22,7 @@
     <div>
         <form id="form_timer" name="form_timer">
             <div>
-                <label class="label_timer">Time (minutes)</label>
+                <label class="label_timer">Add time (minutes)</label>
                 <input type="number" min="5" max="360" id="timeIn" name="timeIn" class="form_input"/>
                 <p class="error_msg">Veuillez entrer une duree valide.</p>
             </div>
@@ -36,23 +36,26 @@
                 <input type="text" id="notes" name="notes" class="form_input"/>
             </div>
 
-            <label id="myTime" class="label_timer">Affichage temps de la session</label>
+            <label id="myTime" class="label_timer countdown">Countdown</label>
+
+            <img src="images/hourglass_1.png" id="imageTime" class="img_timer">
+
+
+            <div>
             <input type="submit" value="START" id="startTime" name="startTime" class="btn_blanc">
-            <p class="error_msg">Veuillez selectionner une activite.</p>
+            <p class="error_msg">Please select an activity.</p>
             <input type="submit" value="PAUSE" id="pauseTime" name="pauseTime" class="btn_blanc">
             <input type="submit" value="STOP" id="stopTime" name="stopTime" class="btn_blanc">
-
+    </div>
             <p id="timeOut"></p>
 
-            <img src="images/hourglass_1.png" id="imageTime">
-
-            <label>Derniere session : </label><br/>
-            <label id="lastFocus">mon focus</label><br/>
-            <label id="lastNotes">mes notes</label><br/>
-            <label id="lastDate">ma date</label><br/>
-            <label id="lastStartTime">date debut</label><br/>
-            <label id="lastFinishTime">date fin</label><br/>
-            <label id="lastLength">Duree de votre session</label>
+            <label>Session : </label><br/>
+            <label id="lastFocus">My focus</label><br/>
+            <label id="lastNotes">My notes</label><br/>
+            <label id="lastDate">Date</label><br/>
+            <label id="lastStartTime">Date beginning</label><br/>
+            <label id="lastFinishTime">Date final</label><br/>
+            <label id="lastLength">Length</label>
 
         </form>
     </div>
@@ -139,13 +142,6 @@
     </div>
     <!-- END 15 DAYS -->
 
-    <!-- CALENDAR -->
-    <div>
-        <h5>Calendar</h5>
-        <hr/>
-        <!-- CALENDAR -->
-    </div>
-    <!-- END CALENDAR -->
 
 </section>
 <!-- END STATS -->
