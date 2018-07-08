@@ -13,16 +13,14 @@ function display_tab_length(){
     if (selected_activity.timed_sessions.length > 0){
 
         let iterator = selected_activity.timed_sessions.length - 1;
-        let limite = selected_activity.timed_sessions.length - 5
+        let limite = selected_activity.timed_sessions.length - 5;
         if(limite < 0){
             limite = 0;
         }
 
         for(iterator; iterator >= limite; iterator--){
 
-        for (let s of selected_activity.timed_sessions){
-
-            lengthforgraph = (s.lengthgraph === undefined ? 0 : s.lengthgraph);
+            lengthforgraph = (selected_activity.timed_sessions[iterator].lengthgraph === undefined ? 0 : selected_activity.timed_sessions[iterator].lengthgraph);
 
             if(lengthforgraph > 0){
             add_length = sessions_length.push(lengthforgraph);
@@ -31,7 +29,6 @@ function display_tab_length(){
             console.log("lengthforgraph :", lengthforgraph);
             console.log("****************************************")
 
-            }
 
         }
     }
