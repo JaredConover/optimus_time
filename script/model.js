@@ -52,12 +52,12 @@ function init_MyActivities() {
 
         let soccer_1 = new TimedSession();
         soccer_1.date = "2/2/2018";
-        soccer_1.length = 22;
+        soccer_1.length = "Hours : 1 Minutes : 30 Seconds : 0";
         new_activity.timed_sessions.push(soccer_1);
 
         let soccer_2 = new TimedSession();
         soccer_2.date = "3/2/2018";
-        soccer_2.length = 28;
+        soccer_2.length = "Hours : 0 Minutes : 30 Seconds : 0"
 
         MyActivities.set(new_activity.title, new_activity);
 

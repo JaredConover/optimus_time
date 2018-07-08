@@ -188,6 +188,13 @@ function stopTimer(){
 
     saveSession();
 
+    $("#imageTime").attr("src","images/hourglass_"+i+".png");
+    document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
+
+    document.getElementById("myTime").innerHTML = "Session terminee";
+
+    display_selected_history_info();
+
     state = "stop";
     angle = 0;
     secondsDone = 0;
@@ -195,13 +202,6 @@ function stopTimer(){
     hoursDone = 0;
     i = 1;
     j = 10;
-
-    $("#imageTime").attr("src","images/hourglass_"+i+".png");
-    document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
-
-    document.getElementById("myTime").innerHTML = "Session terminee";
-
-
 
 }
 
@@ -213,7 +213,7 @@ function saveSession(){
     let session = new TimedSession();
     session.focus = document.getElementById("focus").value;
     session.notes = document.getElementById("notes").value;
-    session.length = "Heures : " + hoursDone + " Minutes : " + (minutesDone % 60) + " Secondes : " + (secondsDone % 60);
+    session.length = "Hours : " + hoursDone + " Minutes : " + (minutesDone % 60) + " Seconds : " + (secondsDone % 60);
     session.lengthgraph = (hoursDone * 60) + minutesDone;
     session.date = dateStart.getDate() + " / " + (dateStart.getMonth()+1) + " / " + dateStart.getFullYear();
     session.start_time = dateStart.getHours() + " : " + dateStart.getMinutes() + " : " + dateStart.getSeconds();
@@ -222,21 +222,5 @@ function saveSession(){
 
     showLastSession();
     sauvegarde();
-}
-
-
-function showLastSession(){
-
-    if (selected_activity.timed_sessions.length > 0){
-
-        document.getElementById("lastFocus").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].focus;
-        document.getElementById("lastNotes").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].notes;
-        document.getElementById("lastDate").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].date;
-        document.getElementById("lastStartTime").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].start_time;
-        document.getElementById("lastFinishTime").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].finish_time;
-        document.getElementById("lastLength").innerHTML = selected_activity.timed_sessions[selected_activity.timed_sessions.length - 1].length;
-
-    }
-
 }
 

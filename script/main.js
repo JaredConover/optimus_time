@@ -69,7 +69,6 @@ function select_activity(evt) {
     //display_tab_dates();
     display_time_average();
     display_tab_length();
-    showLastSession();
     // alert(obj.description);
 }
 
