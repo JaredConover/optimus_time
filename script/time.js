@@ -216,7 +216,7 @@ function saveSession(){
     session.notes = document.getElementById("notes").value;
     session.length = "Heures : " + hoursDone + ", Minutes : " + (minutesDone % 60) + " , Secondes : " + (secondsDone % 60);
     session.lengthgraph = (hoursDone * 60) + minutesDone;
-    session.date = dateStart.getDay() + " / " + dateStart.getMonth() + " / " + dateStart.getFullYear();
+    session.date = dateStart.getDate() + " / " + (dateStart.getMonth()+1) + " / " + dateStart.getFullYear();
     session.start_time = dateStart.getHours() + " : " + dateStart.getMinutes() + " : " + dateStart.getSeconds();
     session.finish_time = dateFinish.getHours() + " : " + dateFinish.getMinutes() + " : " + dateFinish.getSeconds();
     selected_activity.timed_sessions.push(session);
