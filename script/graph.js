@@ -13,7 +13,7 @@ function display_tab_length(){
     if (selected_activity.timed_sessions.length > 0){
 
         let iterator = selected_activity.timed_sessions.length - 1;
-        let limite = selected_activity.timed_sessions.length - 5;
+        let limite = selected_activity.timed_sessions.length - 15;
         if(limite < 0){
             limite = 0;
         }
@@ -39,7 +39,7 @@ function display_tab_length(){
 
     let x = d3.scale.linear()
         .domain([0, d3.max(sessions_length)])
-        .range([0, 100]);
+        .range([0, 150]);
 
     d3.select(".chart")
         .selectAll("div")
