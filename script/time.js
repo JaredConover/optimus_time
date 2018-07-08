@@ -39,10 +39,7 @@ function startTimer(){
 
     timer = window.setInterval(run, 1000);
 
-    let stop = window.setTimeout(function(){
-
-        clearInterval(timer);
-    }, timeTime);
+    let stop = window.setTimeout(stopTimer, timeTime);
 
 }
 
@@ -127,17 +124,7 @@ btnStop.addEventListener("click", function (event){
 
     if(state === "start" || state === "pause") {
 
-        state = "stop";
-        angle = 0;
-        i = 1;
-        j = 10;
-        $("#imageTime").attr("src","images/hourglass_"+i+".png");
-        document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
-
-        clearInterval(timer);
-        document.getElementById("myTime").innerHTML = "Session terminee";
-
-        saveSession();
+        stopTimer();
 
     }
 
@@ -161,10 +148,6 @@ function run() {
 
     if(time > 0) {
         document.getElementById("myTime").innerHTML = minutes + "m " + seconds + "s ";
-    }else{
-        stop;
-        outOfTime();
-        console.log("stop");
     }
 
 
@@ -175,21 +158,23 @@ let j = 10;
 
 function rotationImage(){
 
+    i++;
+
     if(i <= 10){
         $("#imageTime").attr("src","images/hourglass_"+i+".png");
-        i++;
+
     }else if(i >= 11 && i <=30){
         angle += 9;
         document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
-        i++;
+
     }else if(i >= 31 && i <=40){
         $("#imageTime").attr("src","images/hourglass_"+j+".png");
         j--;
-        i++;
+
     }else if(i >= 41 && i <=60){
         angle -= 9;
         document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
-        i++;
+
     }else{
         i = 1;
         j = 10;
@@ -197,12 +182,26 @@ function rotationImage(){
 
 }
 
-function outOfTime(){
+function stopTimer(){
 
+    clearInterval(timer);
+
+    saveSession();
+
+    state = "stop";
+    angle = 0;
+    secondsDone = 0;
+    minutesDone = 0;
+    hoursDone = 0;
     i = 1;
     j = 10;
-    document.getElementById("myTime").innerHTML = "EXPIRED";
-    saveSession();
+
+    $("#imageTime").attr("src","images/hourglass_"+i+".png");
+    document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
+
+    document.getElementById("myTime").innerHTML = "Session terminee";
+
+
 
 }
 
