@@ -156,13 +156,14 @@ function display_selected_history_info(){
 
 //****************************** SECTION TIME AVERAGE ********************//
 
-let total = 0;
-let cpt = 0;
-let moyenne = 0;
 
 let div_time_average = document.getElementById("div_time_average");
 
 function display_time_average(){
+
+    let total = 0;
+    let cpt = 0;
+    let moyenne = 0;
 
     if (selected_activity.timed_sessions.length > 0){
         for (let s of selected_activity.timed_sessions){
@@ -174,6 +175,7 @@ function display_time_average(){
 
         }
     }
+
 
     moyenne = (total / cpt).toFixed(2);
 

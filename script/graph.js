@@ -15,7 +15,7 @@ function display_tab_length(){
 
             lengthforgraph = (s.lengthgraph === undefined ? 0 : s.lengthgraph);
 
-            if(lengthforgraph > 1){
+            if(lengthforgraph > 0){
             add_length = sessions_length.push(lengthforgraph);
             }
             console.log("sessions_date.length :", sessions_length.length);
