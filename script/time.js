@@ -194,6 +194,8 @@ function stopTimer(){
     document.getElementById("myTime").innerHTML = "Session terminee";
 
     display_selected_history_info();
+    display_time_average();
+    display_tab_length();
 
     state = "stop";
     angle = 0;

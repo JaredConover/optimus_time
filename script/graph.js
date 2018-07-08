@@ -12,13 +12,13 @@ function display_tab_length(){
 
     if (selected_activity.timed_sessions.length > 0){
 
-        let i = selected_activity.timed_sessions.length - 1;
-        let max = selected_activity.timed_sessions.length - 5
-        if(max < 0){
-            max = 0;
+        let iterator = selected_activity.timed_sessions.length - 1;
+        let limite = selected_activity.timed_sessions.length - 5
+        if(limite < 0){
+            limite = 0;
         }
 
-        for(i; i >= max; i--){
+        for(iterator; iterator >= limite; iterator--){
 
         for (let s of selected_activity.timed_sessions){
 
