@@ -220,7 +220,6 @@ function saveSession(){
     session.finish_time = dateFinish.getHours() + " : " + dateFinish.getMinutes() + " : " + dateFinish.getSeconds();
     selected_activity.timed_sessions.push(session);
 
-    showLastSession();
     sauvegarde();
 }
 

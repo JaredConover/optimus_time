@@ -12,9 +12,15 @@ function display_tab_length(){
 
     if (selected_activity.timed_sessions.length > 0){
 
-        for(let i = selected_activity.timed_sessions[selected_activity.timed_sessions.length -1]; i > selected_activity.timed_sessions[selected_activity.timed_sessions.length - 5]; i--){
+        let i = selected_activity.timed_sessions.length - 1;
+        let max = selected_activity.timed_sessions.length - 5
+        if(max < 0){
+            max = 0;
+        }
 
-        for (let s of selected_activity.timed_sessions[i]){
+        for(i; i >= max; i--){
+
+        for (let s of selected_activity.timed_sessions){
 
             lengthforgraph = (s.lengthgraph === undefined ? 0 : s.lengthgraph);
 
