@@ -97,8 +97,8 @@ let div_table_sessions = document.getElementById("div_table_sessions");
 function display_selected_history_info(){
 
         while (div_table_sessions.hasChildNodes()) {
-            div_table_sessions.removeChild(div_table_sessions.lastChild);
-        }
+        div_table_sessions.removeChild(div_table_sessions.lastChild);
+    }
 
         let table = document.createElement("table");
         div_table_sessions.appendChild(table);
@@ -152,6 +152,7 @@ function display_selected_history_info(){
 
 
 //****************************** SECTION 15 DAYS *************************//
+
 
 
 
