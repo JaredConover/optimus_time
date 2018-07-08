@@ -39,27 +39,35 @@ class TimedSession  {
 
 
 function init_MyActivities() {
-    let MyActivities = new Map();
 
-    let new_activity = new Activity();
-    new_activity.title = "soccer";
-    new_activity.description = "i kick da balls";
+    if (MyActivities == null) {
+        MyActivities = new Map();
 
-    let soccer_1 = new TimedSession();
-    soccer_1.date = "2/2/2018";
-    soccer_1.length = 22;
-    new_activity.timed_sessions.push(soccer_1);
+        let new_activity = new Activity();
 
-    let soccer_2 = new TimedSession();
-    soccer_2.date = "3/2/2018";
-    soccer_2.length = 28;
 
-    MyActivities.set(new_activity.title, new_activity);
+        new_activity.title = "Soccer";
+        new_activity.description = "Devenir meilleur que Ronaldo!";
+        new_activity.current_goal = "Pratiquer mes corners!"
 
-    let activity = MyActivities.get("soccer");
-    activity.timed_sessions.push(soccer_2);
+        let soccer_1 = new TimedSession();
+        soccer_1.date = "2/2/2018";
+        soccer_1.length = 22;
+        new_activity.timed_sessions.push(soccer_1);
 
-    return MyActivities;
+        let soccer_2 = new TimedSession();
+        soccer_2.date = "3/2/2018";
+        soccer_2.length = 28;
+
+        MyActivities.set(new_activity.title, new_activity);
+
+        let activity = MyActivities.get("Soccer");
+        activity.timed_sessions.push(soccer_2);
+
+        sauvegarde();
+    }
+    //
+    // return MyActivities;
 }
 
 

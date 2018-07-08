@@ -2,6 +2,7 @@
 
 //###################### Functions ################################
 
+
 //************ Start Activity List ******************************
 function add_activity() {
 
@@ -31,17 +32,20 @@ function add_activity() {
 }
 
 function list_activities() {
-    while (activities.hasChildNodes()) {
-        activities.removeChild(activities.lastChild);
-    }
-    for (let a of MyActivities.keys()) {
-        let item = d.createElement("li");
-        item.classList.add("list_element");
-        item.innerHTML = a;
-        item.addEventListener('click', select_activity);
-        // item.addEventListener('mouseover', highlight_btn);
-        // item.addEventListener('mouseleave', unhighlight_btn);
-        activities.appendChild(item);
+
+    if (MyActivities != null) {
+        while (activities.hasChildNodes()) {
+            activities.removeChild(activities.lastChild);
+        }
+        for (let a of MyActivities.keys()) {
+            let item = d.createElement("li");
+            item.classList.add("list_element");
+            item.innerHTML = a;
+            item.addEventListener('click', select_activity);
+            // item.addEventListener('mouseover', highlight_btn);
+            // item.addEventListener('mouseleave', unhighlight_btn);
+            activities.appendChild(item);
+        }
     }
 }
 
@@ -75,7 +79,7 @@ function select_activity(evt) {
 
 function load_activities() {
 
-    if (typeof localStorage !== 'undefined') {
+    if (localStorage.getItem("MyActivities") != null) {
 
         // let get_MyActivities_json = localStorage.getItem("MyActivities");
         // let temp = JSON.parse(get_MyActivities_json);
@@ -91,11 +95,14 @@ function load_activities() {
             console.log(MyActivities.size);
             sauvegarde();
         }
+    }else{
+        init_MyActivities();
     }
 
 }
 
 function sauvegarde() {
+
     console.log("je sauvegarde ", MyActivities.size);
     let set_MyActivities_json = JSON.stringify(Array.from(MyActivities.entries()));
     console.log(set_MyActivities_json);
