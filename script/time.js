@@ -214,7 +214,7 @@ function saveSession(){
     let session = new TimedSession();
     session.focus = document.getElementById("focus").value;
     session.notes = document.getElementById("notes").value;
-    session.length = "Heures : " + hoursDone + ", Minutes : " + (minutesDone % 60) + " , Secondes : " + (secondsDone % 60);
+    session.length = "Heures : " + hoursDone + " Minutes : " + (minutesDone % 60) + " Secondes : " + (secondsDone % 60);
     session.lengthgraph = (hoursDone * 60) + minutesDone;
     session.date = dateStart.getDate() + " / " + (dateStart.getMonth()+1) + " / " + dateStart.getFullYear();
     session.start_time = dateStart.getHours() + " : " + dateStart.getMinutes() + " : " + dateStart.getSeconds();

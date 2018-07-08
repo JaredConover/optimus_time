@@ -88,12 +88,19 @@ input{
 /*********************** History ***********************/
 
 .scroll{
-    height: 200px;
+    height: 400px;
     overflow-y: scroll;
 }
 
 .table_historique table{
     border: none;
+    font: 10px sans-serif;
+    width: 100%;
+}
+
+.table_historique table th{
+    background-color: blue;
+    font-weight: bold;
 }
 
 .table_historique table tr:nth-child(even){
@@ -102,4 +109,12 @@ input{
 
 .table_historique table tr:nth-child(odd){
     background-color: #ffffff;
+}
+
+
+/*********************** Time Average ***********************/
+
+#div_time_average span{
+    font-weight: bold;
+    color: #38205e;
 }

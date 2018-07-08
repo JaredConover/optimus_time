@@ -67,6 +67,7 @@ function select_activity(evt) {
     display_selected_history_info();
     display_timer_activity();
     //display_tab_dates();
+    display_time_average();
     display_tab_length();
     showLastSession();
     // alert(obj.description);

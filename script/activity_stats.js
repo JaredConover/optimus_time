@@ -156,11 +156,39 @@ function display_selected_history_info(){
 
 //****************************** SECTION TIME AVERAGE ********************//
 
+let total = 0;
+let cpt = 0;
+let moyenne = 0;
+
+let div_time_average = document.getElementById("div_time_average");
+
+function display_time_average(){
+
+    if (selected_activity.timed_sessions.length > 0){
+        for (let s of selected_activity.timed_sessions){
+
+            lengthforgraph = (s.lengthgraph === undefined ? 0 : s.lengthgraph);
+
+            total += lengthforgraph;
+            cpt++;
+
+        }
+    }
+
+    moyenne = (total / cpt).toFixed(2);
+
+    while (div_time_average.hasChildNodes()) {
+        div_time_average.removeChild(div_time_average.lastChild);
+    }
+
+    let span_time = document.createElement("span");
+    span_time.textContent = moyenne + " minutes";
+    div_time_average.appendChild(span_time);
+
+}
+
 
 //****************************** SECTION 15 DAYS *************************//
 
-
-
-
-//****************************** SECTION CALENDAR *************************//
+/* see graph.js */
 

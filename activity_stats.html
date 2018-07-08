@@ -12,7 +12,7 @@
     <link type="text/css" rel="stylesheet" href="css/graph.css"/>
 
 </head>
-<body class="container" onload="window.resizeTo(640,480)">
+<body class="container">
 
 <!-- TIMER -->
 <section id="timer_section" class="item_timer">
@@ -116,21 +116,11 @@
     <button id="delete_activity" class="btn_violet margin_top">Delete Activity</button>
     <!-- END BTN DELETE ACTIVITY -->
 
-    <!-- HISTORY -->
-    <div id="div_history">
-        <h5>History</h5>
-        <hr/>
-        <div id="div_table_sessions" class="scroll table_historique">
-
-        </div>
-    </div>
-    <!-- END HISTORY -->
-
     <!-- TIME AVERAGE -->
     <div>
         <h5>Time Average</h5>
         <hr/>
-        <span></span>
+        <div id="div_time_average"></div>
     </div>
     <!-- AVERAGE -->
 
@@ -142,6 +132,15 @@
     </div>
     <!-- END 15 DAYS -->
 
+    <!-- HISTORY -->
+    <div id="div_history">
+        <h5>History</h5>
+        <hr/>
+        <div id="div_table_sessions" class="scroll table_historique">
+
+        </div>
+    </div>
+    <!-- END HISTORY -->
 
 </section>
 <!-- END STATS -->
