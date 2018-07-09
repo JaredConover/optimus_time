@@ -78,7 +78,6 @@ h3 {
     padding: 16px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     margin: 4px 2px;
     border: none;
 }
@@ -107,7 +106,7 @@ h3 {
 }
 
 .img_timer{
-    width:50%;
+    width:35%;
     display: block;
     margin: auto;
     margin-bottom: 20px;
@@ -126,6 +125,8 @@ h3 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 100%;
 }
 
 /********************* LIST ACTIVITIES **********************/
@@ -133,7 +134,7 @@ h3 {
 .item_list{
     padding: 0.5em;
     width: 30%;
-    height: 765px;
+    height: 660px;
     overflow-y: scroll;
 }
 
