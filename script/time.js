@@ -61,18 +61,17 @@ btnStart.addEventListener("click", function(event) {
 
         let champ_timeIn = $("[name=timeIn]");
         let champ_focus = $("[name=focus]");
-        let btn_start = $("[name=startTime]");
+        let firstMessageError = $("#firstMessageError");
 
         console.log(parseInt(champ_timeIn.val()));
 
 
         if(selected_activity !== undefined){
 
-            btn_start.removeClass("error");
-            btn_start.next("p").hide();
+            firstMessageError.hide();
         }else{
-            btn_start.addClass("error");
-            btn_start.next("p").show();
+
+            firstMessageError.show();
             formulaire_valide = false;
         }
 
@@ -191,7 +190,7 @@ function stopTimer(){
     $("#imageTime").attr("src","images/hourglass_"+i+".png");
     document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
 
-    document.getElementById("myTime").innerHTML = "Session terminee";
+    document.getElementById("myTime").innerHTML = "Session finish";
 
     display_selected_history_info();
     display_time_average();

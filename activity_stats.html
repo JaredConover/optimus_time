@@ -21,15 +21,16 @@
     </div>
     <div>
         <form id="form_timer" name="form_timer">
+            <p id="firstMessageError" class="error_msg">Please select an activity.</p>
             <div>
                 <label class="label_timer">Add time (minutes)</label>
                 <input type="number" min="5" max="360" id="timeIn" name="timeIn" class="form_input"/>
-                <p class="error_msg">Veuillez entrer une duree valide.</p>
+                <p class="error_msg">Please add a number.</p>
             </div>
             <div>
                 <label class="label_timer">Focus</label>
                 <input type="text" id="focus" name="focus" class="form_input"/>
-                <p class="error_msg">Veuillez entrer un focus pour votre session.</p>
+                <p class="error_msg">Please add a focus.</p>
             </div>
             <div>
                 <label class="label_timer">Notes</label>
@@ -42,11 +43,10 @@
 
 
             <div class="btnstimer">
-            <input type="submit" value="START" id="startTime" name="startTime" class="btn_blanc">
-            <p class="error_msg">Please select an activity.</p>
-            <input type="submit" value="PAUSE" id="pauseTime" name="pauseTime" class="btn_blanc">
-            <input type="submit" value="STOP" id="stopTime" name="stopTime" class="btn_blanc">
-    </div>
+                <input type="submit" value="START" id="startTime" name="startTime" class="btn_blanc">
+                <input type="submit" value="PAUSE" id="pauseTime" name="pauseTime" class="btn_blanc">
+                <input type="submit" value="STOP" id="stopTime" name="stopTime" class="btn_blanc">
+            </div>
             <p id="timeOut"></p>
 
         </form>
