@@ -190,7 +190,7 @@ function stopTimer(){
     $("#imageTime").attr("src","images/hourglass_"+i+".png");
     document.getElementById('imageTime').style.transform = "rotate("+angle+"deg)";
 
-    document.getElementById("myTime").innerHTML = "Session terminee";
+    document.getElementById("myTime").innerHTML = "Session finish";
 
     display_selected_history_info();
     display_time_average();
